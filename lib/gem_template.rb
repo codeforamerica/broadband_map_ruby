@@ -1,3 +1,0 @@
-module BroadbandMap
-  # Your code goes here...
-end
