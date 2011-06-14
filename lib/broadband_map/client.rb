@@ -1,5 +1,6 @@
 require 'broadband_map/client'
 require 'broadband_map/client/connection'
+require 'broadband_map/client/request'
 require 'broadband_map/client/almanac'
 
 module BroadbandMap
