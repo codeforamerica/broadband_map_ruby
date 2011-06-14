@@ -1,3 +1,5 @@
+require 'broadband_map/client'
+
 module BroadbandMap
   
   def self.client(options={})
