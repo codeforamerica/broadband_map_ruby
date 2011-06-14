@@ -14,7 +14,7 @@ describe BroadbandMap::Client::Almanac do
     
     it "should return the correct item" do
       test = @client.almanac_parameters()
-      a_get().should have_been_made
+      a_get("almanac/parameters?format=json").should have_been_made
       test.results.geographies.property[0].should == "tribalnation"
     end
   end
