@@ -33,6 +33,18 @@ module BroadbandMap
         get("bip/states/#{names}?format=#{params[:format]}&callback=#{params[:callback]}", options)
       end
       
+      # Returns the BIP funding allocation for the whole nation
+      # @param params [Hash] The parameters for the lookup
+      # @param options [Hash] A customizable set of options. 
+      # @return {Hash}
+      # @see http://www.broadbandmap.gov/developer/api/bip-funding-api-nation
+      # @example
+      #   bip_nation()
+      
+      def bip_nation(params={}, options={})
+        params = {:format => 'json'}.merge(params)
+        get("bip/nation?format=#{params[:format]}&callback=#{params[:callback]}", options)
+      end
     end
   end
 end
