@@ -27,7 +27,7 @@ describe BroadbandMap::Client::Cai do
     
     it "should return the correct item" do
       test = @client.cai_geo_id({:data_version => 'fall2010', :geography_type => 'state', :geography_ids => ['01','02']})
-      a_get("cai/fall2010/state/ids/01,02?format=json&callback=").should have_been_called
+      a_get("cai/fall2010/state/ids/01,02?format=json&callback=").should have_been_made
       test.results[0].geographyId.should == '01'
     end
   end
