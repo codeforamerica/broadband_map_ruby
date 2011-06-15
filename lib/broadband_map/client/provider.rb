@@ -15,6 +15,20 @@ module BroadbandMap
         params = {:format => 'json'}.merge(params)
         get("provider?format=#{params[:format]}&callback=#{params[:callback]}")
       end
+      
+      # Searches for all providers with a specified name.
+      #
+      # @param params [Hash] options for the lookup.
+      # @param options [Hash] A customizable set of options. 
+      # @return {Hash}
+      # @see http://www.broadbandmap.gov/developer/api/broadband-provider-api-by-provider-names
+      # @example
+      #   provider_name({:name => 'alb'})
+      
+      def provider_name(params={}, options={})
+        params = {:format => 'json'}.merge(params)
+        get("provider/name/#{params[:name]}?format=#{params[:format]}&callback=#{params[:callback]}")
+      end
     end
   end
 end
