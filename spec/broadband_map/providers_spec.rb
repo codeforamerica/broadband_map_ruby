@@ -21,13 +21,13 @@ describe BroadbandMap::Client::Bip do
   
   describe ".provider_name" do
     before do
-      stub_get ("provider/name/alb?format=json&callback=").
+      stub_get("provider/name/alb?format=json&all=&maxresults=20&callback=").
         to_return(:status => 200, :body => fixture("providers_name.json"))
     end
     
     it "should return correct item" do
-      test = @client.provider({:name => 'alb'})
-      a_get("provider/name/alb?format=json&callback=")
+      test = @client.provider_name({:name => 'alb'})
+      a_get("provider/name/alb?format=json&all=&maxresults=20&callback=")
       test.results[0].holdingCompanyNumber.should == '130031'
     end
   end

@@ -26,8 +26,8 @@ module BroadbandMap
       #   provider_name({:name => 'alb'})
       
       def provider_name(params={}, options={})
-        params = {:format => 'json'}.merge(params)
-        get("provider/name/#{params[:name]}?format=#{params[:format]}&callback=#{params[:callback]}")
+        params = {:format => 'json', :max_results => 20}.merge(params)
+        get("provider/name/#{params[:name]}?format=#{params[:format]}&all=#{params[:all]}&maxresults=#{params[:max_results]}&callback=#{params[:callback]}")
       end
     end
   end
