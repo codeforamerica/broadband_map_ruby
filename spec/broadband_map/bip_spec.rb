@@ -31,4 +31,17 @@ describe BroadbandMap::Client::Bip do
       test.results[0].geographyId.should == '01'
     end
   end
+  
+  describe ".bip_nation" do
+    before do
+      stub_get("bip/nation?format=json&callback=").
+        to_return(:status => 200, :body => fixture("bip_nation.json"))
+    end
+    
+    it "should return the correct item" do
+      test = @client.bip_nation()
+      a_get("bib/nations?format=json&callback=")
+      test.results[0].grantRequest.should == 542135078
+    end
+  end
 end
