@@ -27,7 +27,10 @@ module BroadbandMap
        get("almanac/#{params[:data_version]}/rankby/state/#{params[:state_id]}/#{params[:census_metric_type]}/#{params[:ranking_metric]}/#{params[:geography_type]}/id/#{params[:geography_id]}?format=#{params[:format]}&order=#{params[:sort_order]}&properties=#{params[:properties]}", options)
      end
      
-     
+     def almanac_ranking_geo_id_within_nation(params={}, options={})
+        params = {:format => 'json'}.merge(params)
+        get("almanac/#{params[:data_version]}/rankby/nation/#{params[:census_metric_type]}/#{params[:ranking_metric]}/#{params[:geography_type]}/id/#{params[:geography_id]}?format=#{params[:format]}&order=#{params[:sort_order]}&properties=#{params[:properties]}", options)
+      end
      
    end
  end 

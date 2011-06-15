@@ -31,5 +31,18 @@ describe BroadbandMap::Client::Almanac do
       test.results.all[0].rank.should == 1
     end
   end
+  
+  describe ".almanac_ranking_geo_id_within_nation" do
+    before do
+      stub_get("almanac/fall2010/rankby/nation/population/wirelineproviderequals0/county/id/51117?format=json&order=asc&properties=").
+        to_return(:status => 200, :body => fixture("almanac_rank_geography_id_nation.json"))
+    end
+    
+    it "should return the correct item" do
+      test = @client.almanac_ranking_geo_id_within_nation({:data_version => 'fall2010', :census_metric_type => 'population', :ranking_metric => 'wirelineproviderequals0', :geography_type => 'county', :geography_id => '51117', :sort_order => 'asc'})
+      a_get("almanac/fall2010/rankby/nation/population/wirelineproviderequals0/county/id/51117?format=json&order=asc&properties=").should have_been_made
+      test.results.firstTen[0].geographyId.should == "60020"
+    end
+  end
 
 end
