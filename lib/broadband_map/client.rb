@@ -5,6 +5,7 @@ require 'broadband_map/client/almanac'
 require 'broadband_map/client/bip'
 require 'broadband_map/client/btop'
 require 'broadband_map/client/provider'
+require 'broadband_map/client/summary'
 
 module BroadbandMap
   class Client
@@ -14,5 +15,7 @@ module BroadbandMap
     include BroadbandMap::Client::Btop
     include BroadbandMap::Client::Almanac
     include BroadbandMap::Client::Provider
+    include BroadbandMap::Client::Summary
+
   end
 end
