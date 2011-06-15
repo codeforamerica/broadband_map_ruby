@@ -34,13 +34,13 @@ describe BroadbandMap::Client::Census do
   
   describe ".census_geo_name" do
     before do
-      stub_get("county/fai?format=json&maxresults=100&all=").
+      stub_get("census/county/fai?format=json&maxresults=100&all=").
         to_return(:status => 200, :body => fixture("census_geo_name.json"))
     end
     
     it "shoudl return the correct item" do
       test = @client.census_geo_name({:geography_type => 'county', :geography_name => 'fai'})
-      a_get("county/fai?format=json&maxresults=100&all=").should have_been_made
+      a_get("census/county/fai?format=json&maxresults=100&all=").should have_been_made
       test.results.county[0].fips.should == '02090'
     end
   end
