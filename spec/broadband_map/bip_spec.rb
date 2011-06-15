@@ -8,14 +8,14 @@ describe BroadbandMap::Client::Bip do
   
   describe ".bip_state_id" do
     before do
-      stub_get("/bip/stateids/01,02?format=json").
+      stub_get("bip/stateids/01,02?format=json&callback=").
         to_return(:status => 200, :body => fixture("bip_state_id.json"))
     end
     
     it "should return the correct item" do
       test = @client.bip_state_id(:state_ids => ['01', '02'])
-      get("/bip/stateids/01,02?format=json")
-      test.results[0].geographyId.should = "01"
+      a_get("bip/stateids/01,02?format=json&callback=")
+      test.results[0].geographyId.should == "01"
     end
   end
 end
