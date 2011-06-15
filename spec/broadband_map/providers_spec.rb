@@ -14,7 +14,7 @@ describe BroadbandMap::Client::Bip do
 
     it "should return correct item" do
       test = @client.provider_all()
-      a_get("provider?format=json&callback=")
+      a_get("provider?format=json&callback=").should have_been_made
       test.results[0].holdingCompanyNumber.should == "131413"
     end
   end
@@ -27,7 +27,7 @@ describe BroadbandMap::Client::Bip do
     
     it "should return correct item" do
       test = @client.provider_name({:name => 'alb'})
-      a_get("provider/name/alb?format=json&all=&maxresults=20&callback=")
+      a_get("provider/name/alb?format=json&all=&maxresults=20&callback=").should have_been_made
       test.results[0].holdingCompanyNumber.should == '130031'
     end
   end

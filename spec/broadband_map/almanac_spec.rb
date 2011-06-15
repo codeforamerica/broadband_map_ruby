@@ -53,7 +53,7 @@ describe BroadbandMap::Client::Almanac do
     
     it "should return the correct item" do
       test = @client.almanac_ranking_geo_type_within_state({:data_version => 'fall2010', :state_id => '01', :census_metric_type => 'population', :ranking_metric => 'wirelineproviderequals0', :geography_type => 'county', :sort_order => 'asc'})
-      a_get("almanac/fall2010/rankby/state/01/population/wirelineproviderequals0/county?format=json&order=asc&properties=")
+      a_get("almanac/fall2010/rankby/state/01/population/wirelineproviderequals0/county?format=json&order=asc&properties=").should have_been_made
       test.results.all[0].geographyId.should == "01063"
     end
   end
@@ -66,7 +66,7 @@ describe BroadbandMap::Client::Almanac do
     
     it "should return the correct item" do
       test = @client.almanac_ranking_geo_type_within_nation({:data_version => 'fall2010', :census_metric_type => 'population', :ranking_metric => 'wirelineproviderequals0', :geography_type => 'county', :sort_order => 'asc'})
-      a_get("almanac/fall2010/rankby/nation/population/wirelineproviderequals0/county?format=json&order=asc&properties=")
+      a_get("almanac/fall2010/rankby/nation/population/wirelineproviderequals0/county?format=json&order=asc&properties=").should have_been_made
       test.results.firstTen[0].geographyId.should == "60020"
     end
   end

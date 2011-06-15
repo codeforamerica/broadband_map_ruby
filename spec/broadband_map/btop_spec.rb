@@ -14,7 +14,7 @@ describe BroadbandMap::Client::Btop do
     
     it "should return the correct item" do
       test = @client.btop_state_id(:state_ids => ['01', '02'])
-      a_get("btop/stateids/01,02?format=json&callback=")
+      a_get("btop/stateids/01,02?format=json&callback=").should have_been_made
       test.results[0].geographyId.should == "01"
     end
   end
@@ -27,7 +27,7 @@ describe BroadbandMap::Client::Btop do
     
     it "should return the correct item" do
       test = @client.btop_state_name(:state_names => ['alaska', 'alabama'])
-      a_get("btop/states/alaska,alabama?format=json&callback=")
+      a_get("btop/states/alaska,alabama?format=json&callback=").should have_been_made
       test.results[0].geographyId.should == '01'
     end
   end
@@ -40,7 +40,7 @@ describe BroadbandMap::Client::Btop do
     
     it "should return the correct item" do
       test = @client.btop_nation()
-      a_get("bib/nations?format=json&callback=")
+      a_get("btop/nation?format=json&callback=").should have_been_made
       test.results[0].totalAwardInDollars.should == 3484813380
     end
   end
