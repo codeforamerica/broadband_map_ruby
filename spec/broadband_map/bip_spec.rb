@@ -18,4 +18,17 @@ describe BroadbandMap::Client::Bip do
       test.results[0].geographyId.should == "01"
     end
   end
+  
+  describe ".bip_state_name" do
+    before do
+      stub_get("bip/states/alaska,alabama?format=json&callback=").
+        to_return(:status => 200, :body => fixture("bip_state_name.json"))
+    end
+    
+    it "should return the correct item" do
+      test = @client.bip_state_name(:state_names => ['alaska', 'alabama'])
+      a_get("bip/states/alaska,alabama?format=json&callback=")
+      test.results[0].geographyId.should == '01'
+    end
+  end
 end
