@@ -19,4 +19,18 @@ describe BroadbandMap::Client::Summary do
     end
   end
   
+  describe ".summary_nation" do
+    before do
+      stub_get("analyze/fall2010/summary/population/nation?format=json&callback=").
+        to_return(:status => 200, :body => fixture("summary_nation.json"))
+    end
+    
+    it "should return the correct item" do
+      test = @client.summary_nation(:data_version => 'fall2010', :census_metric_type => 'population')
+      a_get("analyze/fall2010/summary/population/nation?format=json&callback=").should have_been_made
+      test.results[0].geographyId.should == '99'
+    end
+  end
+  
+  
 end
