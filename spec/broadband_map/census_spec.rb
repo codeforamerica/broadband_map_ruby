@@ -19,4 +19,17 @@ describe BroadbandMap::Client::Census do
     end
   end
   
+  describe ".census_fips" do
+    before do
+      stub_get("census/state/fips/36?format=json&callback=").
+        to_return(:status => 200, :body => fixture("census_fips.json"))
+    end
+    
+    it "should return the correct item" do
+      test = @client.census_fips({:geography_type => 'state', :fips => '36'})
+      a_get("census/state/fips/36?format=json&callback=").should have_been_made
+      test.results.state[0].fips.should == '36'
+    end
+  end
+  
 end
