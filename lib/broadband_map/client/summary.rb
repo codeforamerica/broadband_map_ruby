@@ -19,6 +19,10 @@ module BroadbandMap
         get("analyze/#{params[:data_version]}/summary/#{params[:census_metric_type]}/#{params[:geography_type]}/ids/#{ids}?format=#{params[:format]}&callback=#{params[:callback]}")
       end
       
+      def summary_nation(params={}, options={})
+        params = {:format => 'json'}.merge(params)
+        get("analyze/#{params[:data_version]}/summary/#{params[:census_metric_type]}/nation?format=#{params[:format]}&callback=#{params[:callback]}")
+      end
       
     end
   end
