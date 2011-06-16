@@ -9,6 +9,7 @@ require 'broadband_map/client/summary'
 require 'broadband_map/client/census'
 require 'broadband_map/client/cai'
 require 'broadband_map/client/demographics'
+require 'broadband_map/client/geography'
 
 module BroadbandMap
   class Client
@@ -22,5 +23,6 @@ module BroadbandMap
     include BroadbandMap::Client::Census
     include BroadbandMap::Client::Cai
     include BroadbandMap::Client::Demographics
+    include BroadbandMap::Client::Geography
   end
 end
