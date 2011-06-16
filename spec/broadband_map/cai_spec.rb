@@ -44,5 +44,19 @@ describe BroadbandMap::Client::Cai do
       test.results[0].geographyId.should == '01'
     end
   end
+  
+  describe ".cai_nation" do
+    before do
+      stub_get("cai/fall2010/nation?format=json&callback=").
+        to_return(:status => 200, :body => fixture("cai_nation.json"))
+    end
+    
+    it "should return the correct item" do
+      test = @client.cai_nation({:data_version => 'fall2010'})
+      a_get("cai/fall2010/nation?format=json&callback=").should have_been_made
+      test.results[0].geographyId.should == '99'
+    end
+  end
+      
 
 end
