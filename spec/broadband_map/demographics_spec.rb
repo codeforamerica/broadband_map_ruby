@@ -32,4 +32,17 @@ describe BroadbandMap::Client::Demographics do
     end
   end
   
+  describe '.demographics_geo_names' do
+    before do
+      stub_get("demographic/fall2010/county/names/jersey,jefferson?format=json&callback=").
+        to_return(:status => 200, :body => fixture("demo_geo_name.json"))
+    end
+    
+    it "should return the correct item" do
+      test = @client.demographics_geo_name({:data_version => 'fall2010', :geography_type => 'county', :geography_names => ['jersey', 'jefferson']})
+      a_get("demographic/fall2010/county/names/jersey,jefferson?format=json&callback=").should have_been_made
+      test.results[0].geographyId.should == '36045'
+    end
+  end
+  
 end
