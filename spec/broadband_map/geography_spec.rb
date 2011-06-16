@@ -44,5 +44,18 @@ describe BroadbandMap::Client::Geography do
       test.results[0].stateFips.should == "08"
     end
   end
+  
+  describe ".geography_type_state" do
+    before do
+      stub_get("geography/state/01/msa?format=json&maxresults=100&all=&callback=").
+        to_return(:status => 200, :body => fixture("geo_type_state.json"))
+    end
+    
+    it "should get the correct item" do
+      test = @client.geography_type_state({:geography_type => 'censusplace', :geography_name => 'sei'})
+      a_get("geography/state/01/msa?format=json&maxresults=100&all=&callback=").should have_been_made
+      test.results[0].geographyId.should == "11500"
+    end
+  end
 
 end
