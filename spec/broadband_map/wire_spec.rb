@@ -13,7 +13,7 @@ describe BroadbandMap::Client::Wire do
     end
     
     it "should return correct item" do
-      test = @client.wireless({})
+      test = @client.wireless({:data_version => 'fall2010', :latitude => 42.456, :longitude => -74.987})
       a_get("broadband/fall2010/wireless?latitude=42.456&longitude=-74.987&format=json&maxresults=100&callback=").should have_been_made
       test.results.wirelessServices[0].frn.should == "0003774593"
     end

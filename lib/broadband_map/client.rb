@@ -11,6 +11,7 @@ require 'broadband_map/client/cai'
 require 'broadband_map/client/demographics'
 require 'broadband_map/client/geography'
 require 'broadband_map/client/speed_test'
+require 'broadband_map/client/wire'
 
 module BroadbandMap
   class Client
@@ -26,5 +27,6 @@ module BroadbandMap
     include BroadbandMap::Client::Demographics
     include BroadbandMap::Client::Geography
     include BroadbandMap::Client::SpeedTest
+    include BroadbandMap::Client::Wire
   end
 end
