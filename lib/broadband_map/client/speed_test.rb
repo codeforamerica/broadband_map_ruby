@@ -21,7 +21,12 @@ module BroadbandMap
       def speed_test_quartile(params={}, options={})
         params = {:format => 'json'}.merge(params)
         get("speedtest/#{params[:geography_type]}/quartile?format=#{params[:format]}&speedtesttype=#{params[:speed_test_type]}&callback=#{params[:callback]}")
-      end      
+      end   
+      
+      def speed_test_nation(params={}, options={})
+        params = {:format => 'json'}.merge(params)
+        get("speedtest/nation?format=#{params[:format]}&speedtesttype=#{params[:speed_test_type]}&callback=#{params[:callback]}")
+      end   
       
     end
   end

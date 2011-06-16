@@ -54,7 +54,7 @@ describe BroadbandMap::Client::SpeedTest do
     it "should get the correct item" do
       test = @client.speed_test_nation()
       a_get("speedtest/nation?format=json&speedtesttype=&callback=").should have_been_made
-      test.results.geographyID.should == "99"
+      test.results[0].geographyId.should == "99"
     end
   end
   
