@@ -7,6 +7,10 @@ module BroadbandMap
         get("geography/#{params[:geography_type]}/id/#{params[:geography_id]}?format=#{params[:format]}&callback=#{params[:callback]}")
       end
       
+      def geography_type(params={}, options={})
+        params = {:format => 'json', :max_results => 100}.merge(params)
+        get("geography/#{params[:geography_type]}?format=#{params[:format]}&maxresults=#{params[:max_results]}&all=#{params[:all]}callback=#{params[:callback]}")
+      end
     end
   end
 end
