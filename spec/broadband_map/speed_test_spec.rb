@@ -26,7 +26,7 @@ describe BroadbandMap::Client::SpeedTest do
     end
     
     it "should get the correct item" do
-      test = @client.speed_test_geo_type_name({:geography_type => 'state', :geography_ids => ['alabama', 'arizona']})
+      test = @client.speed_test_geo_type_name({:geography_type => 'state', :geography_names => ['alabama', 'arizona']})
       a_get("speedtest/state/names/alabama,arizona?format=json&speedtesttype=callback=").should have_been_made
       test.results[0].geographyId.should == "01"
     end
