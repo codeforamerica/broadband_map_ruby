@@ -28,7 +28,7 @@ describe BroadbandMap::Client::Wire do
     it "should return correct item" do
       test = @client.wireline({:data_version => 'fall2010', :latitude => 42.456, :longitude => -74.987})
       a_get("broadband/fall2010/wireline?latitude=42.456&longitude=-74.987&format=json&maxresults=100&callback=").should have_been_made
-      test.results.wirelessServices[0].blockFIPS.should == "360779908001025"
+      test.results.wirelineServices[0].blockFIPS.should == "360779908001025"
     end
   end
   
