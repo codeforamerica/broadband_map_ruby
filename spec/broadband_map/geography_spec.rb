@@ -57,5 +57,18 @@ describe BroadbandMap::Client::Geography do
       test.results[0].geographyId.should == "11500"
     end
   end
+  
+  describe ".geography_type_name_state" do
+    before do
+      stub_get("geography/state/17/county/name/mar?format=json&maxresults=100&all=&callback=").
+        to_return(:status => 200, :body => fixture("geo_type_state.json"))
+    end
+    
+    it "should get the correct item" do
+      test = @client.geography_type_name_state({:geography_type => 'county', :state_fips => '17', :geography_name => 'mar'})
+      a_get("geography/state/17/county/name/mar?format=json&maxresults=100&all=&callback=").should have_been_made
+      test.results[0].geographyId.should == "17121"
+    end
+  end
 
 end
