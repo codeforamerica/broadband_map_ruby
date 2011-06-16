@@ -7,7 +7,7 @@ module BroadbandMap
         ids = ""
         params[:geography_ids].each {|x| ids += x +","}
         ids.chop!
-        get("speedtest/#{params[:geography_type]}/ids/#{ids}?format=#{params[:format]}&speedtesttype=#{params[:speed_test_type]}callback=#{params[:callback]}")
+        get("speedtest/#{params[:geography_type]}/ids/#{ids}?format=#{params[:format]}&speedtesttype=#{params[:speed_test_type]}&callback=#{params[:callback]}")
       end
       
       def speed_test_geo_type_name(params={}, options={})
@@ -15,9 +15,13 @@ module BroadbandMap
         names = ""
         params[:geography_names].each {|x| names += x +","}
         names.chop!
-        get("speedtest/#{params[:geography_type]}/names/#{names}?format=#{params[:format]}&speedtesttype=#{params[:speed_test_type]}callback=#{params[:callback]}")
+        get("speedtest/#{params[:geography_type]}/names/#{names}?format=#{params[:format]}&speedtesttype=#{params[:speed_test_type]}&callback=#{params[:callback]}")
       end
       
+      def speed_test_quartile(params={}, options={})
+        params = {:format => 'json'}.merge(params)
+        get("speedtest/#{params[:geography_type]}/quartile?format=#{params[:format]}&speedtesttype=#{params[:speed_test_type]}&callback=#{params[:callback]}")
+      end      
       
     end
   end
