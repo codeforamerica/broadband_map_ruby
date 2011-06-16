@@ -45,4 +45,17 @@ describe BroadbandMap::Client::SpeedTest do
     end
   end
   
+  describe ".speed_test_nation" do
+    before do
+      stub_get("speedtest/nation?format=json&speedtesttype=&callback=").
+        to_return(:status => 200, :body => fixture("speed_nation.json"))
+    end
+    
+    it "should get the correct item" do
+      test = @client.speed_test_nation()
+      a_get("speedtest/nation?format=json&speedtesttype=&callback=").should have_been_made
+      test.results.geographyID.should == "99"
+    end
+  end
+  
 end
