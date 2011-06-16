@@ -52,7 +52,7 @@ describe BroadbandMap::Client::Geography do
     end
     
     it "should get the correct item" do
-      test = @client.geography_type_state({:geography_type => 'censusplace', :geography_name => 'sei'})
+      test = @client.geography_type_state({:geography_type => 'msa', :state_fips => '01'})
       a_get("geography/state/01/msa?format=json&maxresults=100&all=&callback=").should have_been_made
       test.results[0].geographyId.should == "11500"
     end
