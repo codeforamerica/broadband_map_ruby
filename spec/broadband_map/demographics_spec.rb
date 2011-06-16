@@ -45,4 +45,17 @@ describe BroadbandMap::Client::Demographics do
     end
   end
   
+  describe '.demographics_nation' do
+    before do
+      stub_get("demographic/fall2010/nation?format=json&callback=").
+        to_return(:status => 200, :body => fixture("demo_nation.json"))
+    end
+    
+    it "should return the correct item" do
+      test = @client.demographics_nation({:data_version => 'fall2010'})
+      a_get("demographic/fall2010/nation?format=json&callback=").should have_been_made
+      test.results[0].landArea.should == 3803232.4871
+    end
+  end
+  
 end
