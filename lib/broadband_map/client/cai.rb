@@ -15,6 +15,14 @@ module BroadbandMap
         get("cai/#{params[:data_version]}/#{params[:geography_type]}/ids/#{ids}?format=#{params[:format]}&callback=#{params[:callback]}")
       end
       
+      def cai_geo_name(params={}, options={})
+        params = {:format => 'json'}.merge(params)
+        names = ""
+        params[:geography_names].each {|x| names += x +","}
+        names.chop!
+        get("cai/#{params[:data_version]}/#{params[:geography_type]}/names/#{names}?format=#{params[:format]}&callback=#{params[:callback]}")
+      end
+      
     end
   end
 end
