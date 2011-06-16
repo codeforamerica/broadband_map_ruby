@@ -61,7 +61,7 @@ describe BroadbandMap::Client::Geography do
   describe ".geography_type_name_state" do
     before do
       stub_get("geography/state/17/county/name/mar?format=json&maxresults=100&all=&callback=").
-        to_return(:status => 200, :body => fixture("geo_type_state.json"))
+        to_return(:status => 200, :body => fixture("geo_type_state_name.json"))
     end
     
     it "should get the correct item" do
