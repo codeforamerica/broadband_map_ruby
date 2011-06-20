@@ -9,7 +9,7 @@ Installation
 
 Usage Examples
 --------------
-<pre><code>
+
     require 'broadband_map'
 
     # Provide all the wireless providers within a US census block given a passed latitude and longitude.
@@ -20,8 +20,6 @@ Usage Examples
 
 		# Returns rankings within nation by specific geo id
 		BroadbandMap.almanac_ranking_geo_id_within_nation({:data_version => 'fall2010', :census_metric_type => 'population', :ranking_metric => 'wirelineproviderequals0', :geography_type => 'county', :geography_id => '01101', :sort_order => 'asc'})
-		
-</pre></code>
 
 Contributing
 ------------
@@ -64,3 +62,5 @@ Copyright
 ---------
 Copyright (c) 2010 Code for America Laboratories
 See [LICENSE](https://github.com/codeforamerica/broadband_map_ruby/blob/master/LICENSE.md) for details.
+
+[![Code for America Tracker](http://stats.codeforamerica.org/codeforamerica/broadband_map_ruby.png)](http://stats.codeforamerica.org/projects/broadband_map_ruby)
