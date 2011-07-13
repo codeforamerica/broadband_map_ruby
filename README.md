@@ -1,6 +1,6 @@
 Broadband Map
 =======
-A Ruby wrapper for the Broadband Map APIs.
+A Ruby wrapper for the [Broadband Map APIs](http://broadbandmap.gov/developer).
 
 
 Installation
