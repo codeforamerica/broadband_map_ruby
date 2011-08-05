@@ -2,6 +2,10 @@ Broadband Map
 =======
 A Ruby wrapper for the [Broadband Map APIs](http://broadbandmap.gov/developer).
 
+Continuous Integration
+----------------------
+[![Build Status](http://travis-ci.org/codeforamerica/broadband_map_ruby.png)](http://travis-ci.org/codeforamerica/broadband_map_ruby)
+
 
 Installation
 ------------
