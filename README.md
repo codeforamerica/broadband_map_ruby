@@ -1,18 +1,10 @@
-Broadband Map
-=======
+# Broadband Map [![Build Status](https://secure.travis-ci.org/codeforamerica/broadband_map_ruby.png)](http://travis-ci.org/codeforamerica/broadband_map_ruby)
 A Ruby wrapper for the [Broadband Map APIs](http://broadbandmap.gov/developer).
 
-Continuous Integration
-----------------------
-[![Build Status](https://secure.travis-ci.org/codeforamerica/broadband_map_ruby.png)](http://travis-ci.org/codeforamerica/broadband_map_ruby)
-
-Installation
-------------
+## Installation
     gem install broadband_map
 
-Usage Examples
---------------
-
+## Usage Examples
     require 'broadband_map'
 
     # Provide all the wireless providers within a US census block given a passed latitude and longitude.
@@ -24,9 +16,11 @@ Usage Examples
 		# Returns rankings within nation by specific geo id
 		BroadbandMap.almanac_ranking_geo_id_within_nation({:data_version => 'fall2010', :census_metric_type => 'population', :ranking_metric => 'wirelineproviderequals0', :geography_type => 'county', :geography_id => '01101', :sort_order => 'asc'})
 
-Contributing
-------------
-In the spirit of [free software](http://www.fsf.org/licensing/essays/free-sw.html), **everyone** is encouraged to help improve this project.
+## Contributing
+In the spirit of [free software][free-sw], **everyone** is encouraged to help improve
+this project.
+
+[free-sw]: http://www.fsf.org/licensing/essays/free-sw.html
 
 Here are some ways *you* can contribute:
 
@@ -35,35 +29,43 @@ Here are some ways *you* can contribute:
 * by suggesting new features
 * by writing or editing documentation
 * by writing specifications
-* by writing code (**no patch is too small**: fix typos, add comments, clean up inconsistent whitespace)
+* by writing code (**no patch is too small**: fix typos, add comments, clean up
+  inconsistent whitespace)
 * by refactoring code
-* by resolving [issues](https://github.com/codeforamerica/broadband_map_ruby/issues)
+* by fixing [issues][]
 * by reviewing patches
 
-Submitting an Issue
--------------------
-We use the [GitHub issue tracker](https://github.com/codeforamerica/broadband_map_ruby/issues) to track bugs and
-features. Before submitting a bug report or feature request, check to make sure it hasn't already
-been submitted. You can indicate support for an existing issuse by voting it up. When submitting a
-bug report, please include a [Gist](https://gist.github.com/) that includes a stack trace and any
-details that may be necessary to reproduce the bug, including your gem version, Ruby version, and
-operating system. Ideally, a bug report should include a pull request with failing specs.
+[issues]: https://github.com/codeforamerica/broadband_map_ruby/issues
 
-Submitting a Pull Request
--------------------------
-1. Fork the project.
-2. Create a topic branch.
-3. Implement your feature or bug fix.
-4. Add documentation for your feature or bug fix.
-5. Run <tt>bundle exec rake doc:yard</tt>. If your changes are not 100% documented, go back to step 4.
-6. Add specs for your feature or bug fix.
-7. Run <tt>bundle exec rake spec</tt>. If your changes are not 100% covered, go back to step 6.
-8. Commit and push your changes.
-9. Submit a pull request. Please do not include changes to the gemspec, version, or history file. (If you want to create your own version for some reason, please do so in a separate commit.)
+## Submitting an Issue
+We use the [GitHub issue tracker][issues] to track bugs and features. Before
+submitting a bug report or feature request, check to make sure it hasn't
+already been submitted. When submitting a bug report, please include a [Gist][]
+that includes a stack trace and any details that may be necessary to reproduce
+the bug, including your gem version, Ruby version, and operating system.
+Ideally, a bug report should include a pull request with failing specs.
 
-Copyright
----------
-Copyright (c) 2010 Code for America Laboratories
-See [LICENSE](https://github.com/codeforamerica/broadband_map_ruby/blob/master/LICENSE.md) for details.
+[gist]: https://gist.github.com/
+
+## Submitting a Pull Request
+1. [Fork the repository.][fork]
+2. [Create a topic branch.][branch]
+3. Add specs for your unimplemented feature or bug fix.
+4. Run `bundle exec rake spec`. If your specs pass, return to step 3.
+5. Implement your feature or bug fix.
+6. Run `bundle exec rake spec`. If your specs fail, return to step 5.
+7. Run `open coverage/index.html`. If your changes are not completely covered
+   by your tests, return to step 3.
+8. Add, commit, and push your changes.
+9. [Submit a pull request.][pr]
+
+[fork]: http://help.github.com/fork-a-repo/
+[branch]: http://learn.github.com/p/branching.html
+[pr]: http://help.github.com/send-pull-requests/
+
+## Copyright
+Copyright (c) 2010 Code for America. See [LICENSE][] for details.
+
+[license]: https://github.com/codeforamerica/broadband_map_ruby/blob/master/LICENSE.md
 
 [![Code for America Tracker](http://stats.codeforamerica.org/codeforamerica/broadband_map_ruby.png)](http://stats.codeforamerica.org/projects/broadband_map_ruby)
