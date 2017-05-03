@@ -26,7 +26,7 @@ module BroadbandMap
       def demographics_geo_id(params={}, options={})
         params = {:format => 'json'}.merge(params)
         ids = ""
-        params[:geography_ids].each {|x| ids += x +","}
+        params[:geography_ids].each {|x| ids += "#{x},"}
         ids.chop!
         get("demographic/#{params[:data_version]}/#{params[:geography_type]}/ids/#{ids}?format=#{params[:format]}&callback=#{params[:callback]}")
       end
