@@ -67,5 +67,3 @@ Ideally, a bug report should include a pull request with failing specs.
 Copyright (c) 2010 Code for America. See [LICENSE][] for details.
 
 [license]: https://github.com/codeforamerica/broadband_map_ruby/blob/master/LICENSE.md
-
-[![Code for America Tracker](http://stats.codeforamerica.org/codeforamerica/broadband_map_ruby.png)](http://stats.codeforamerica.org/projects/broadband_map_ruby)
