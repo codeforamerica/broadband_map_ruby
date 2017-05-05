@@ -1,4 +1,4 @@
-# Broadband Map [![Build Status](https://secure.travis-ci.org/codeforamerica/broadband_map_ruby.png)](http://travis-ci.org/codeforamerica/broadband_map_ruby)
+# Broadband Map [![Build Status](https://travis-ci.org/codeforamerica/broadband_map_ruby.svg?branch=master)](http://travis-ci.org/codeforamerica/broadband_map_ruby)
 A Ruby wrapper for the [Broadband Map APIs](http://broadbandmap.gov/developer).
 
 ## Installation
