@@ -6,7 +6,7 @@ module BroadbandMap
       private
 
       def connection
-        Faraday.new(:url => 'http://www.broadbandmap.gov/broadbandmap/') do |connection|
+        Faraday.new(:url => 'https://www.broadbandmap.gov/broadbandmap/') do |connection|
           connection.use Faraday::Request::UrlEncoded
           connection.use Faraday::Response::RaiseError
           connection.use Faraday::Response::Rashify
