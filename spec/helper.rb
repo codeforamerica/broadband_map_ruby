@@ -7,6 +7,10 @@ require 'rspec'
 
 require 'webmock/rspec'
 
+RSpec.configure do |config|
+  config.expect_with(:rspec) { |c| c.syntax = :should }
+end
+
 def a_delete(path)
   a_request(:delete, 'http://www.broadbandmap.gov/broadbandmap/' + path)
 end
